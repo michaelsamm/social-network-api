@@ -11,7 +11,7 @@ const UserSchema = new Schema(
         email: {
             type: String,
             unique: true,
-            required: true,
+            required: true
             // validation for matching valid email address
         },
         thoughts: [
