@@ -12,6 +12,7 @@ const UserSchema = new Schema(
             type: String,
             unique: true,
             required: true,
+            // Use an email regex to validate the email
             match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please provide a valid email address']
         },
         thoughts: [
@@ -35,6 +36,7 @@ const UserSchema = new Schema(
     }
 );
 
+// Add a count of how many friends a user has be measure the length of the array
 UserSchema.virtual('friendCount').get(function() {
     return this.friends.length;
 });

@@ -19,6 +19,7 @@ const ReactionSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
+            // Make timestamps use more readable formatting
             get: createdAtVal => timestampFormat(createdAtVal)
         }
     }
@@ -35,6 +36,7 @@ const ThoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
+            // Make timestamps use more readable formatting
             get: createdAtVal => timestampFormat(createdAtVal)
         },
         username: {
@@ -52,6 +54,7 @@ const ThoughtSchema = new Schema(
     }
 );
 
+// Add a count to Thought objects for how many reactions it has by reading the length of the reactions array
 ThoughtSchema.virtual('reactionCount').get(function() {
     return this.reactions.length;
 })
